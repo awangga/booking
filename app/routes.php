@@ -1,17 +1,35 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
+if (App::runningInConsole()) {
+	return;
+}
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+// WARNING: you must comment this init route on production
+// INIT INIT INIT COMMENT THIS AFTER FIRST USAGE
+Route::controller('init', 'InitController');
+
+//route by domain
+foreach (Domain::all() as $dcp) {
+	Route::group(array(
+		'domain' => $dcp['domain'] 
+	), function () use($dcp) {
+		if (!Cookie::get('domain_hash')) {
+			Route::get('/', 'PanelController@dcp');
+		}
+	});
+}
+
+Route::get('/', 'HomeController@showHome');
+
+Route::controller('login', 'LoginController');
+Route::get('logout', 'LoginController@getLogout');
+
+Route::controller('register', 'RegisterController');
+
+Route::controller('password', 'PasswordController');
+
+// Start of private routes protected with auth
+
+
+Route::controller('dashboard', 'DashboardController');
+
