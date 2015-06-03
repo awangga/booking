@@ -59,10 +59,7 @@ class RegisterController extends BaseController {
 			});
 
             Event::fire('logger',array(array('account_register', array('id'=>$user->id,'username'=>$user->username), 2)));
-//			return Output::push(array(
-//				'path' => 'register',
-//				'messages' => array('success' => _('You have registered successfully')),
-//				));
+
 			return Redirect::to('register')->with('success', _('You have registered successfully'))->withCookie($cookie);
 		} else {
 			return Output::push(array(
