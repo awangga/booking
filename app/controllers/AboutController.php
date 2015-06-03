@@ -1,6 +1,6 @@
 <?php
 
-class ContactController extends \BaseController {
+class AboutController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
