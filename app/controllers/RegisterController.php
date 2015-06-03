@@ -17,7 +17,7 @@ class RegisterController extends BaseController {
 		$rules = array(
 			'first_name' => 'required|min:1',
 			'email' => 'required|email|unique:users,email,NULL,id,deleted_at,NULL,domain_id,'.$domain_id,
-			'username' => 'required|min:3|must_alpha_num|unique:users,username,NULL,id,deleted_at,NULL,domain_id,'.$domain_id,
+			'username' => 'required|min:3|unique:users,username,NULL,id,deleted_at,NULL,domain_id,'.$domain_id,
 			'password' => 'required|min:6',
 		);
 		$v = Validator::make($input, $rules);
