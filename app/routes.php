@@ -31,3 +31,5 @@ Route::controller('password', 'PasswordController');
 
 Route::controller('dashboard', 'DashboardController');
 
+Route::controller('about', 'AboutController');
+
