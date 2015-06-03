@@ -94,7 +94,7 @@ return array(
 	*/
 
 	'providers' => array(
-
+		'Aamant\EmailConfirmation\EmailConfirmationServiceProvider',
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
