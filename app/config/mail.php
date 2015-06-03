@@ -122,3 +122,10 @@ return array(
 	'pretend' => false,
 
 );
+
+if(Schema::hasTable('settings')) {
+
+    $mail['from'] = array('address' => Config::get('settings.email_address_for_notification'), 'name' => Config::get('settings.sender_name'));
+}
+
+return $mail;
