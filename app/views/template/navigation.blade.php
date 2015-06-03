@@ -75,7 +75,7 @@
                 @endif
                 @if(!Cookie::get('domain_hash'))
                     <li @if(Request::segment(1)=='contact')
-                        class="active" @endif>{{ link_to('contact', _('Contact us')) }}</li>
+                        class="active" @endif>{{ link_to('about', _('About us')) }}</li>
                 @endif
             </ul>
             @if(Cookie::get('domain_hash'))
